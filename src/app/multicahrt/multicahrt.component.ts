@@ -32,7 +32,10 @@ onResize() {
 }
 
   ngAfterViewInit(): void {
-    this.chart= createChart(this.chartdiv.nativeElement);
+    this.chart= createChart(this.chartdiv.nativeElement,{timeScale: {
+      timeVisible: true,
+      secondsVisible: false,
+    },});
     this.lineSeries=this.chart.addLineSeries({
   });
     this.lineSerieseth=this.chart.addLineSeries();
@@ -50,7 +53,7 @@ onResize() {
 
         }
         else{
-          this.lineSeries.update({ time:(moment(data1.open_time)).format('YYYY-MMM-DD') , value: data1.close })
+          this.lineSeries.update({ time:Math.floor(new Date(data1.open_time).getTime() / 1000) , value: data1.close })
           this.btc= data1.close; 
         
         } 
@@ -73,7 +76,7 @@ onResize() {
 
         }
         else{
-          this.lineSerieseth.update({ time:(moment(data1.open_time)).format('YYYY-MMM-DD') , value: data1.close })
+          this.lineSerieseth.update({ time:Math.floor(new Date(data1.open_time).getTime() / 1000) , value: data1.close })
           this.eth= data1.close; 
         
         } 
@@ -90,7 +93,7 @@ onResize() {
 
         }
         else{
-          this.lineSeriesxpr.update({ time:(moment(data1.open_time)).format('YYYY-MMM-DD') , value: data1.close })
+          this.lineSeriesxpr.update({ time:Math.floor(new Date(data1.open_time).getTime() / 1000) , value: data1.close })
           this.xrp= data1.close; 
           this.loading=false
         
@@ -109,7 +112,7 @@ onResize() {
 
         }
         else{
-       this.lineSerieseth.update({ time:(moment(data[i].open_time)).format('YYYY-MMM-DD') , value: data[i].close })
+       this.lineSerieseth.update({ time:Math.floor(new Date(data[i].open_time).getTime() / 1000) , value: data[i].close })
        this.eth= data[i].close; 
         }
 
@@ -120,7 +123,7 @@ onResize() {
 
       //   }
       //   else{
-      //  this.lineSeries.update({ time:(moment(data[i].open_time)).format('YYYY-MMM-DD') , value: data[i].close })
+      //  this.lineSeries.update({ time:Math.floor(new Date(data1.open_time).getTime() / 1000) , value: data[i].close })
       //  this.btc= data[i].close; 
       //   }
     
@@ -138,7 +141,7 @@ onResize() {
 
         }
         else{
-       this.lineSerieseth.update({ time:(moment(data[i].open_time)).format('YYYY-MMM-DD') , value: data[i].close })
+       this.lineSerieseth.update({ time:Math.floor(new Date(data[i].open_time).getTime() / 1000) , value: data[i].close })
        this.eth= data[i].close; 
         }
 
@@ -156,7 +159,7 @@ onResize() {
 
         }
         else{
-       this.lineSeriesxpr.update({ time:(moment(data[i].open_time)).format('YYYY-MMM-DD') , value: data[i].close })
+       this.lineSeriesxpr.update({ time:Math.floor(new Date(data[i].open_time).getTime() / 1000) , value: data[i].close })
        this.xrp= data[i].close; 
        this.loading=false;
         }
