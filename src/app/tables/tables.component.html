@@ -1,0 +1,162 @@
+<div class="row"  style="background-color: #fafafa;">
+<div class="container">
+    <div #height class="col-12" style="height: 100vh;">
+<div class="row">
+    <div class="col-12">
+        <mat-card class="mt-2" >
+            <mat-card-title style="font-weight: bolder;color: rgba(0, 0, 0, 0.759);">Key Statistics</mat-card-title>
+            <mat-spinner *ngIf="loading"  style="margin:0 auto;" 
+            mode="indeterminate"></mat-spinner>
+          <div *ngIf="!loading" class="row pt-5 pb-3" style="border-bottom: 2px solid rgba(0, 0, 0, 0.459);" >
+              <div class="col-xl-4">
+<div class="row">
+<div class="col-6">
+    <p style="font-weight: bolder;color: rgba(0, 0, 0, 0.559);">Alpha (90d mean)</p>
+</div>
+<div class="col-6">
+<p style="text-align: right;color: rgba(0, 0, 0, 1);font-weight: 500;">{{financiald.alpha_90d_mean}}</p>
+</div>
+</div>
+</div>
+              <div class="col-xl-4">
+                <div class="row">
+                    <div class="col-6">
+                        <p  style="font-weight: bolder;color: rgba(0, 0, 0, 0.559);">Sharpe Ratio(90d mean)</p>
+                    </div>
+                    <div class="col-6">
+                    <p style="text-align: right;color: rgba(0, 0, 0, 1);font-weight: 500;">{{financiald.sharpe_90d_mean}}</p>
+                    </div>
+                    </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="row">
+                    <div class="col-5">
+                        <p  style="font-weight: bolder;color: rgba(0, 0, 0, 0.559);">YTD Performance</p>
+                    </div>
+                    <div class="col-7">
+                    <p style="text-align: right;color: rgba(0, 0, 0, 1);font-weight: 500;">{{financiald.ytd_perf}}</p>
+                    </div>
+                    </div>
+            </div>
+            </div>
+            <div  *ngIf="!loading" class="row pt-5 pb-1" >
+  <!--2nd Row-->
+  <div class="col-xl-4">
+    <div class="row">
+    <div class="col-5">
+        <p  style="font-weight: bolder;color: rgba(0, 0, 0, 0.559);">24h Vloume</p>
+    </div>
+    <div class="col-7">
+    <p style="text-align: right;color: rgba(0, 0, 0, 1);font-weight: 500;">{{crypto_meter["24h_vol"]}}</p>
+    </div>
+    </div>
+    </div>
+                  <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-5">
+                            <p  style="font-weight: bolder;color: rgba(0, 0, 0, 0.559);">Agg Mcap</p>
+                        </div>
+                        <div class="col-7">
+                        <p style="text-align: right;color: rgba(0, 0, 0, 1);font-weight: 500;">{{crypto_meter.agg_mcap}}</p>
+                        </div>
+                        </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-5">
+                            <p  style="font-weight: bolder;color: rgba(0, 0, 0, 0.559);">Mcap Share</p>
+                        </div>
+                        <div class="col-7">
+                        <p style="text-align: right;color: rgba(0, 0, 0, 1);font-weight: 500;">{{crypto_meter.mcap_share}}</p>
+                        </div>
+                        </div>
+                </div>
+            </div>
+                                 <!--3rd Row-->
+                       <!-- <div class="row pt-5 pb-3" style="border-bottom: 2px solid rgba(0, 0, 0, 0.459);">
+                                    <div class="col-xl-4">
+                                        <div class="row">
+                                        <div class="col-3">
+                                            <p  style="font-weight: bolder;color: rgba(0, 0, 0, 0.559);">Drawdown</p>
+                                        </div>
+                                        <div class="col-9">
+                                        <p style="text-align: right;color: rgba(0, 0, 0, 1);font-weight: 500;">13.0%</p>
+                                        </div>
+                                        </div>
+                                        </div>
+                                                      <div class="col-xl-4">
+                                                        <div class="row">
+                                                            <div class="col-3">
+                                                                <p  style="font-weight: bolder;color: rgba(0, 0, 0, 0.559);">CAGR</p>
+                                                            </div>
+                                                            <div class="col-9">
+                                                            <p style="text-align: right;color: rgba(0, 0, 0, 1);font-weight: 500;">29.73%</p>
+                                                            </div>
+                                                            </div>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <div class="row">
+                                                            <div class="col-3">
+                                                                <p  style="font-weight: bolder;color: rgba(0, 0, 0, 0.559);">Turnover</p>
+                                                            </div>
+                                                            <div class="col-9">
+                                                            <p style="text-align: right;color: rgba(0, 0, 0, 1);font-weight: 500;">32.10%</p>
+                                                            </div>
+                                                            </div>
+                                                    </div>
+                                 </div>
+       <div class="row pt-5 pb-3" style="border-bottom: 2px solid rgba(0, 0, 0, 0.459);">
+                                 
+
+                                     <div class="col-xl-4">
+                                        <div class="row">
+                                        <div class="col-3">
+                                            <p  style="font-weight: bolder;color: rgba(0, 0, 0, 0.559);"> Score</p>
+                                        </div>
+                                        <div class="col-9">
+                                        <p style="text-align: right;color: rgba(0, 0, 0, 1);font-weight: 500;">120</p>
+                                        </div>
+                                        </div>
+                                        </div>
+                                                      <div class="col-xl-4">
+                                                        <div class="row">
+                                                            <div class="col-5">
+                                                                <p  style="font-weight: bolder;color: rgba(0, 0, 0, 0.559);">Information Ratio</p>
+                                                            </div>
+                                                            <div class="col-7">
+                                                            <p style="text-align: right;color: rgba(0, 0, 0, 1);font-weight: 500;">0.75</p>
+                                                            </div>
+                                                            </div>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <div class="row">
+                                                            <div class="col-5">
+                                                                <p  style="font-weight: bolder;color: rgba(0, 0, 0, 0.559);">Trade Per Day</p>
+                                                            </div>
+                                                            <div class="col-7">
+                                                            <p style="text-align: right;color: rgba(0, 0, 0, 1);font-weight: 500;">1</p>
+                                                            </div>
+                                                            </div>
+                                                    </div>
+       </div>
+            <div class="row pt-5 " >
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <p  style="font-weight: bolder;color: rgba(0, 0, 0, 0.559);">Captial Requirement</p>
+                        </div>
+                        <div class="col-6">
+                        <p style="text-align: right;color: rgba(0, 0, 0, 1);font-weight: 500;">$10,000</p>
+                        </div>
+                        </div>
+                </div>
+            </div> -->
+      
+          </mat-card>
+          <br>
+         
+    </div>
+</div>
+    </div>
+</div>
+</div>
