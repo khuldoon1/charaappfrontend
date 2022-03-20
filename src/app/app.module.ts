@@ -8,11 +8,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TablesComponent } from './tables/tables.component';
 import { ChartsComponent } from './charts/charts.component';
 import {MatCardModule} from '@angular/material/card';
+import { MulticahrtComponent } from './multicahrt/multicahrt.component';
 @NgModule({
   declarations: [
     AppComponent,
     TablesComponent,
-    ChartsComponent
+    ChartsComponent,
+    MulticahrtComponent
   ],
   imports: [
     BrowserModule,
