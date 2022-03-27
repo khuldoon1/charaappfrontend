@@ -1,0 +1,102 @@
+.chartheight{
+    height: 600px;
+    
+    }
+    .charhide{
+        height: 0px;
+    }
+    .floating-tooltip-2 {
+        width: 156px;
+        height: 80px;
+        position: absolute;
+        display: none;
+        padding: 8px;
+        box-sizing: border-box;
+        font-size: 12px;
+        color: #131722;
+        background-color: rgba(255, 255, 255, 0.7);
+        text-align: left;
+        z-index: 1000;
+        /* top: 12px;
+        left: 12px; */
+        pointer-events: none;
+        border: 1px solid rgba(250, 177, 131, 1);
+        border-radius: 2px;
+     
+    } 
+    .floating-tooltip-3 {
+        width: 156px;
+        height: 80px;
+        position: absolute;
+        display: none;
+        padding: 8px;
+        box-sizing: border-box;
+        font-size: 12px;
+        color: #131722;
+        background-color: rgba(255, 255, 255, 0.7);
+        text-align: left;
+        z-index: 1000;
+        /* top: 12px;
+        left: 12px; */
+        pointer-events: none;
+        border: 1px solid  rgba(255, 195, 69, 1);
+        border-radius: 2px;
+     
+    }
+    .floating-tooltip-4 {
+        width: 156px;
+        height: 80px;
+        position: absolute;
+        display: none;
+        padding: 8px;
+        box-sizing: border-box;
+        font-size: 12px;
+        color: #131722;
+        background-color: rgba(255, 255, 255, 0.7);
+        text-align: left;
+        z-index: 1000;
+        /* top: 12px;
+        left: 12px; */
+        pointer-events: none;
+        border: 1px solid  rgba(255, 195, 69, 1);
+        border-radius: 2px;
+     
+    }
+    .floating-tooltip-5 {
+        width: 156px;
+        height: 80px;
+        position: absolute;
+        display: none;
+        padding: 8px;
+        box-sizing: border-box;
+        font-size: 12px;
+        color: #131722;
+        background-color: rgba(255, 255, 255, 0.7);
+        text-align: left;
+        z-index: 1000;
+        /* top: 12px;
+        left: 12px; */
+        pointer-events: none;
+        border: 1px solid  rgba(0, 120, 12, 1);
+        border-radius: 2px;
+     
+    }
+    .floating-tooltip-6 {
+        width: 156px;
+        height: 80px;
+        position: absolute;
+        display: none;
+        padding: 8px;
+        box-sizing: border-box;
+        font-size: 12px;
+        color: #131722;
+        background-color: rgba(255, 255, 255, 0.7);
+        text-align: left;
+        z-index: 1000;
+        /* top: 12px;
+        left: 12px; */
+        pointer-events: none;
+        border: 1px solid  #ff7f9f;
+        border-radius: 2px;
+     
+    }

@@ -34,7 +34,7 @@ export class ChartsComponent implements AfterViewInit {
     btc=0;
     eth=0;
     xrp=0;
-    timeinterval=60000;
+    timeinterval=120000;
     loading=true;
     toolTipWidth :any;
     toolTipHeight :any;
@@ -90,9 +90,9 @@ onResize() {
     this.toolTipHeight = 10;
     this.toolTipMargin = 25;
    setTimeout(() => {
-   
+   this.loading=false;
       this.update();
-   }, 60000);
+   }, 120000);
 
  
 
@@ -138,9 +138,12 @@ this.chart0.subscribeCrosshairMove((param:any) => {
     let price = param.seriesPrices.get(this.lineSerieseth);
     let date;
 
-      date= param.time.day+"/"+param.time.month+"/"+param.time.year
-    
-      date= moment(param.time* 1000).format('DD/MM/YYYY,h:mm:ss a');
+    if(this.onemin==true||this.sixmonthdata==true||this.threemonthdata==true){
+      date=param.time.year+"/"+param.time.month+"/"+param.time.day
+    }
+    else{
+     date= moment(param.time* 1000).format('DD/MM/YYYY,h:mm:ss a');
+    }
    
     // let time = param.seriesPrices.get(this.lineSeries);
     // console.log("price",price)
@@ -166,9 +169,12 @@ this.chart1.subscribeCrosshairMove((param:any) => {
     this.toolTip1.nativeElement.style.display = 'block';
     let price = param.seriesPrices.get(this.lineSeriesxpr);
     let date;
- 
-
-      date= moment(param.time* 1000).format('DD/MM/YYYY,h:mm:ss a');
+    if(this.onemin==true||this.sixmonthdata==true||this.threemonthdata==true){
+      date=param.time.year+"/"+param.time.month+"/"+param.time.day
+    }
+    else{
+     date= moment(param.time* 1000).format('DD/MM/YYYY,h:mm:ss a');
+    }
   
     // let time = param.seriesPrices.get(this.lineSeries);
     // console.log("price",price)
@@ -191,9 +197,9 @@ this.chart1.subscribeCrosshairMove((param:any) => {
     this.loading=true;
     if(this.sevenday==true){
       this.api.getsevendaybtc().subscribe((data:any)=>{
-       
+       console.log(data);
         data.forEach((data1:any,i:any) => {
-         
+         console.log(data1);
           if(data1.open_time==null || data1.close==null){
   
           }
@@ -203,7 +209,7 @@ this.chart1.subscribeCrosshairMove((param:any) => {
           
           } 
         });
-        this.loading==false;
+        this.loading=false;
            });
 
     }else if(this.onemin==true){
@@ -218,7 +224,7 @@ this.chart1.subscribeCrosshairMove((param:any) => {
           
           } 
         });
-        this.loading==false;
+        this.loading=false;
            });
     }else if(this.thirtyday==true){
       this.api.getthirtydaybtc().subscribe((data:any)=>{
@@ -234,7 +240,7 @@ this.chart1.subscribeCrosshairMove((param:any) => {
           
           } 
         });
-        this.loading==false;
+        this.loading=false;
            });
     }else if(this.threemonthdata==true){
       this.api.getthreemonthdbtc().subscribe((data:any)=>{
@@ -250,7 +256,7 @@ this.chart1.subscribeCrosshairMove((param:any) => {
           
           } 
         });
-        this.loading==false;
+        this.loading=false;
            });
     }else if(this.sixmonthdata==true){
       this.api.getsixmonthdbtc().subscribe((data:any)=>{
@@ -266,7 +272,7 @@ this.chart1.subscribeCrosshairMove((param:any) => {
           
           } 
         });
-        this.loading==false;
+        this.loading=false;
            });
     }
 
@@ -665,7 +671,7 @@ this.gettingdataeth();
 this.gettingdataxpr();
   }
   update=()=>{
-if(this.loading==false){
+if(this.loading==true){
   this.chart.removeSeries(this.lineSeries);;
   this.lineSeries = null;
   this.chart0.removeSeries(this.lineSerieseth);
@@ -698,8 +704,9 @@ if(this.loading==false){
   this.gettingdataxpr();
 }
 setTimeout(() => {
+  this.loading=true;
   this.update();
-}, 60000);
+}, 120000);
 }
 
   // this.api.getdataxprnew().subscribe((data:any)=>{
